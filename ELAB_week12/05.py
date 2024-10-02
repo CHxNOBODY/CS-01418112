@@ -1,26 +1,13 @@
-def play_hangman():
-    word = input()
-    guessed_letters = []
-    gallows = ["", "", "", "", "", ""]
-    blanks = ["-"] * len(word)
+word = input()
 
-    while True:
-        guess = input()
-        if guess == "0":
-            break
-        if guess in guessed_letters:
-            print("You already guessed this letter!")
-            continue
-        guessed_letters.append(guess)
-        if guess in word:
-            for i, letter in enumerate(word):
-                if letter == guess:
-                    blanks[i] = guess
-        else:
-            gallows.append("X")
-            if len(gallows) == 6:
-                print("You lost! The word was " + word)
-                return
-        print(" ".join(blanks))
+guessed_letters = ['-' for _ in range(len(word))]
 
-play_hangman()
+while True:
+    guess = input()
+    if guess == '0':
+        break
+    for i, letter in enumerate(word):
+        if letter == guess:
+            guessed_letters[i] = guess
+
+print(''.join(guessed_letters))
