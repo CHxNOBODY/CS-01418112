@@ -34,3 +34,5 @@ def auction_program():
     print(f"The winner is {winner}.")
 
 auction_program()
+
+#ไม่ผ่าน
